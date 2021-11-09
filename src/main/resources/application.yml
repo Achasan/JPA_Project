@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:h2:tcp://localhost/~/jpashop
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+
+# ddl-auto : hibernate가 애플리케이션 실행 시점에 테이블을 DROP하고 자동으로 CREATE하도록 설정함
+# show_sql: true > hibernate가 비즈니스 로직을 처리할 때 사용하는 SQL문을 출력(soutv)
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        format_sql: true
+
+# hibernate가 생성하는 SQL문의 로그를 debug 레벨로 설정, 로그로 출력하기 때문에 show_sql보다 성능 면에서 좋음
+logging:
+  level:
+    org.hibernate:SQL: debug
+    org.hibernate.type: trace
